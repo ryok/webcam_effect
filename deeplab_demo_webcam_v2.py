@@ -21,7 +21,7 @@ import cv2
 import tensorflow as tf
 
 # Needed to show segmentation colormap labels
-sys.path.append('models/research/deeplab/utils')
+sys.path.append('tensorflow_models/research/deeplab/utils')
 import get_dataset_colormap
 
 
@@ -129,9 +129,10 @@ while True:
     resized = cv2.cvtColor(resized, cv2.COLOR_RGB2BGR)
     
     # Stack horizontally color frame and mask
-    color_and_mask = np.hstack((resized, seg_image))
+    #color_and_mask = np.hstack((resized, seg_image))
 
-    cv2.imshow('frame', color_and_mask)
+    #cv2.imshow('frame', color_and_mask)
+    cv2.imshow('frame', seg_image)
     if cv2.waitKey(25) & 0xFF == ord('q'):
         cap.release()
         cv2.destroyAllWindows()
